@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\CRM;
+namespace App\Entity\Atendimento;
 
 use CrosierSource\CrosierLibBaseBundle\Doctrine\Annotations\NotUppercase;
 use CrosierSource\CrosierLibBaseBundle\Entity\EntityId;

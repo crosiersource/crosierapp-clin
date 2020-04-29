@@ -1,10 +1,13 @@
 {
+    "name": "crosiersource/crosierapp-clin",
+    "description": "CrosierApp para Clínicas",
     "type": "project",
     "license": "proprietary",
     "require": {
         "php": "^7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
         "friendsofsymfony/jsrouting-bundle": "^2.2",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "5.0.*",
