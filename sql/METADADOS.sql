@@ -93,3 +93,33 @@ CREATE TABLE `cln_atendimento`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8
   COLLATE = utf8_swedish_ci;
+
+
+
+DROP TABLE IF EXISTS `cln_contrato`;
+
+CREATE TABLE `cln_contrato`
+(
+    `id`                 bigint(20) NOT NULL AUTO_INCREMENT,
+    `descricao`          varchar(255),
+    `json_data`          json,
+
+    UNIQUE KEY `UK_cln_contrato` (`descricao`),
+
+    -- campo de controle
+    PRIMARY KEY (`id`),
+    `inserted`           datetime   NOT NULL,
+    `updated`            datetime   NOT NULL,
+    `version`            int(11),
+    `estabelecimento_id` bigint(20) NOT NULL,
+    `user_inserted_id`   bigint(20) NOT NULL,
+    `user_updated_id`    bigint(20) NOT NULL,
+    KEY `K_crm_contrato_estabelecimento` (`estabelecimento_id`),
+    KEY `K_crm_contrato_user_inserted` (`user_inserted_id`),
+    KEY `K_crm_contrato_user_updated` (`user_updated_id`),
+    CONSTRAINT `FK_crm_contrato_user_inserted` FOREIGN KEY (`user_inserted_id`) REFERENCES `sec_user` (`id`),
+    CONSTRAINT `FK_crm_contrato_estabelecimento` FOREIGN KEY (`estabelecimento_id`) REFERENCES `cfg_estabelecimento` (`id`),
+    CONSTRAINT `FK_crm_contrato_user_updated` FOREIGN KEY (`user_updated_id`) REFERENCES `sec_user` (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
+  COLLATE = utf8_swedish_ci;

@@ -1,0 +1,47 @@
+{% extends '@CrosierLibBase/list_simpl.html.twig' %}
+
+
+
+{% block corpoTabela %}
+
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for e in dados %}
+        <tr>
+            <td>
+                {{ e.id }}
+            </td>
+            <td>
+                {{ e.descricao }}
+            </td>
+            <td class="text-right">
+
+                <a role="button" class="btn btn-sm btn-primary"
+                   href="{{ url(formRoute, {'id': e.id}) }}">
+                    <i class="fas fa-wrench" aria-hidden="true"></i>
+                </a>
+                <button type="button" class="btn btn-sm btn-danger"
+                        data-url="{{ url('cln_contrato_delete', {'id': e.id}) }}"
+                        data-token="{{ csrf_token('delete') }}"
+                        data-target="#confirmationModal" data-toggle="modal">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+                <br/>
+                <span class="badge badge-secondary">{{ e.updated|date('d/m/Y H:i:s') }}</span>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+
+{% endblock %}
+
+
+
+{% block down_scripts %}
+{% endblock %}

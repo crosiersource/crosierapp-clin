@@ -71,9 +71,9 @@ class ProcedimentoController extends FormListController
     public function list(Request $request): Response
     {
         $params = [
-            'formRoute' => 'procedimento_form',
+            'formRoute' => 'cln_procedimento_form',
             'listView' => 'Atendimento/procedimento_list.html.twig',
-            'listRoute' => 'procedimento_list',
+            'listRoute' => 'cln_procedimento_list',
             'listPageTitle' => 'Procedimentos',
             'listId' => 'procedimentoList'
         ];
