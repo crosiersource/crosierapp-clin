@@ -10,7 +10,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  *
- * @ORM\Entity(repositoryClass="App\Repository\Pessoal\ProcedimentoRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\Atendimento\ProcedimentoRepository")
  * @ORM\Table(name="cln_procedimento")
  *
  * @author Carlos Eduardo Pauluk
@@ -22,12 +22,12 @@ class Procedimento implements EntityId
 
     /**
      *
-     * @ORM\Column(name="descricao", type="string")
+     * @ORM\Column(name="nome", type="string")
      * @var null|string
      *
      * @Groups("entity")
      */
-    private ?string $descricao;
+    public ?string $nome = null;
 
     /**
      *

@@ -5,7 +5,7 @@ namespace App\Controller\Atendimento;
 
 use App\Entity\Atendimento\Procedimento;
 use App\EntityHandler\Atendimento\ProcedimentoEntityHandler;
-use App\Form\Estoque\ProcedimentoType;
+use App\Form\Atendimento\ProcedimentoType;
 use CrosierSource\CrosierLibBaseBundle\Controller\FormListController;
 use CrosierSource\CrosierLibBaseBundle\Utils\RepositoryUtils\FilterData;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -40,20 +40,20 @@ class ProcedimentoController extends FormListController
 
     /**
      *
-     * @Route("/cln/procedimento/form/{id}", name="procedimento_form", defaults={"id"=null}, requirements={"id"="\d+"})
+     * @Route("/cln/procedimento/form/{id}", name="cln_procedimento_form", defaults={"id"=null}, requirements={"id"="\d+"})
      * @param Request $request
      * @param Procedimento|null $procedimento
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @throws \Exception
      *
-     * @IsGranted("ROLE_FINAN_ADMIN", statusCode=403)
+     * @IsGranted("ROLE_CLINICA_ADMIN", statusCode=403)
      */
     public function form(Request $request, Procedimento $procedimento = null)
     {
         $params = [
             'typeClass' => ProcedimentoType::class,
             'formView' => '@CrosierLibBase/form.html.twig',
-            'formRoute' => 'procedimento_form',
+            'formRoute' => 'cln_procedimento_form',
             'formPageTitle' => 'Procedimento'
         ];
         return $this->doForm($request, $procedimento, $params);
@@ -61,12 +61,12 @@ class ProcedimentoController extends FormListController
 
     /**
      *
-     * @Route("/cln/procedimento/list/", name="procedimento_list")
+     * @Route("/cln/procedimento/list/", name="cln_procedimento_list")
      * @param Request $request
      * @return Response
      * @throws \Exception
      *
-     * @IsGranted("ROLE_FINAN_ADMIN", statusCode=403)
+     * @IsGranted("ROLE_CLINICA_ADMIN", statusCode=403)
      */
     public function list(Request $request): Response
     {
@@ -74,7 +74,6 @@ class ProcedimentoController extends FormListController
             'formRoute' => 'procedimento_form',
             'listView' => 'Atendimento/procedimento_list.html.twig',
             'listRoute' => 'procedimento_list',
-            'listRouteAjax' => 'procedimento_datatablesJsList',
             'listPageTitle' => 'Procedimentos',
             'listId' => 'procedimentoList'
         ];
@@ -83,12 +82,12 @@ class ProcedimentoController extends FormListController
 
     /**
      *
-     * @Route("/cln/procedimento/delete/{id}/", name="procedimento_delete", requirements={"id"="\d+"})
+     * @Route("/cln/procedimento/delete/{id}/", name="cln_procedimento_delete", requirements={"id"="\d+"})
      * @param Request $request
      * @param Procedimento $procedimento
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      *
-     * @IsGranted("ROLE_FINAN_ADMIN", statusCode=403)
+     * @IsGranted("ROLE_ADMIN", statusCode=403)
      */
     public function delete(Request $request, Procedimento $procedimento): \Symfony\Component\HttpFoundation\RedirectResponse
     {

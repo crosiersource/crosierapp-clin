@@ -39,7 +39,7 @@ WHERE uuid = '829821c7-560f-455e-9709-347927788de6';
 INSERT INTO cfg_entmenu(uuid, label, icon, tipo, app_uuid, url, roles, pai_uuid, ordem, css_style, inserted, updated,
                         estabelecimento_id, user_inserted_id, user_updated_id)
 VALUES ('829821c7-560f-455e-9709-347927788de6', 'Profissionais', 'fas fa-user-md', 'ENT',
-        'ead49941-35a8-49fc-b932-44be4bb25e15', '/cln/profissional/list/', '', 'be7e0edf-e3fc-4a64-987d-e3f71f696951',
+        'ead49941-35a8-49fc-b932-44be4bb25e15', '/cln/profissional/list/', '', '9abbe89c-aa92-4a06-8fb8-198cfdc56bd2',
         1, null, now(), now(), 1, 1, 1);
 
 
@@ -51,7 +51,7 @@ WHERE uuid = '991e76cc-8cf4-4835-87b4-edc2ecd4e1ef';
 INSERT INTO cfg_entmenu(uuid, label, icon, tipo, app_uuid, url, roles, pai_uuid, ordem, css_style, inserted, updated,
                         estabelecimento_id, user_inserted_id, user_updated_id)
 VALUES ('991e76cc-8cf4-4835-87b4-edc2ecd4e1ef', 'Procedimentos', 'fas fa-book-medical', 'ENT',
-        'ead49941-35a8-49fc-b932-44be4bb25e15', '/cln/procedimento/list/', '', 'be7e0edf-e3fc-4a64-987d-e3f71f696951',
+        'ead49941-35a8-49fc-b932-44be4bb25e15', '/cln/procedimento/list/', '', '9abbe89c-aa92-4a06-8fb8-198cfdc56bd2',
         1, null, now(), now(), 1, 1, 1);
 
 

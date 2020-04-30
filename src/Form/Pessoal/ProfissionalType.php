@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Form\Atendimento;
+namespace App\Form\Pessoal;
 
-use App\Entity\Atendimento\Procedimento;
+use App\Entity\Pessoal\Profissional;
 use CrosierSource\CrosierLibBaseBundle\Entity\Config\AppConfig;
 use CrosierSource\CrosierLibBaseBundle\Form\JsonType;
 use CrosierSource\CrosierLibBaseBundle\Repository\Config\AppConfigRepository;
@@ -18,7 +18,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  *
  * @author Carlos Eduardo Pauluk
  */
-class ProcedimentoType extends AbstractType
+class ProfissionalType extends AbstractType
 {
 
     /** @var EntityManagerInterface */
@@ -33,11 +33,11 @@ class ProcedimentoType extends AbstractType
     {
         /** @var AppConfigRepository $repoAppConfig */
         $repoAppConfig = $this->doctrine->getRepository(AppConfig::class);
-        $jsonMetadata = json_decode($repoAppConfig->findByChave('est_procedimento_json_metadata'), true);
+        $jsonMetadata = json_decode($repoAppConfig->findByChave('est_profissional_json_metadata'), true);
 
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($jsonMetadata) {
-            /** @var Procedimento $procedimento */
-            $procedimento = $event->getData();
+            /** @var Profissional $profissional */
+            $profissional = $event->getData();
             $builder = $event->getForm();
 
             $builder->add('nome', TextType::class, [
@@ -45,7 +45,7 @@ class ProcedimentoType extends AbstractType
                 'attr' => ['class' => 'focusOnReady'],
             ]);
 
-            $builder->add('jsonData', JsonType::class, ['jsonMetadata' => $jsonMetadata, 'jsonData' => $procedimento->jsonData]);
+            $builder->add('jsonData', JsonType::class, ['jsonMetadata' => $jsonMetadata, 'jsonData' => $profissional->jsonData]);
 
         });
 
@@ -68,7 +68,7 @@ class ProcedimentoType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Procedimento::class
+            'data_class' => Profissional::class
         ]);
     }
 }

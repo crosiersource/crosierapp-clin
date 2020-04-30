@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository\Pessoal;
+namespace App\Repository\Atendimento;
 
-use App\Entity\CRM\Procedimento;
+use App\Entity\Atendimento\Procedimento;
 use CrosierSource\CrosierLibBaseBundle\Repository\FilterRepository;
 
 /**

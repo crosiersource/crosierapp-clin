@@ -2,7 +2,7 @@
 
 namespace App\Repository\Pessoal;
 
-use App\Entity\CRM\Profissional;
+use App\Entity\Pessoal\Profissional;
 use CrosierSource\CrosierLibBaseBundle\Repository\FilterRepository;
 
 /**
